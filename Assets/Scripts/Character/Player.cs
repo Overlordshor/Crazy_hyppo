@@ -4,21 +4,28 @@ using UnityEngine;
 
 namespace Game.Character
 {
+	[RequireComponent(typeof(RebornHandler))]
 	public class Player : Character
 	{
 		[SerializeField] private float _rotationDuration;
 		[SerializeField] private float _launchPower;
 		[SerializeField] private float _launchDuration;
+		[SerializeField] private float _timeToReborn;
 
 		private VictoryPointsHandler _victoryPointsHandler;
+		private RebornHandler _rebornHandler;
+
 		private Tween _rotateTween;
 		private Tween _lanuchTween;
+		private Tween _rebornTween;
 		private Vector3 _startPosition;
 
-		public bool IsLaunched => _rigidbody.velocity.magnitude > 0;
+		public bool IsLaunched => _rigidbody.velocity.magnitude > 0 && gameObject.activeSelf;
 
 		protected override void OnAwake()
 		{
+			_rebornHandler = GetComponent<RebornHandler>();
+
 			_startPosition = transform.position;
 
 			_rotateTween = transform.DORotate(new Vector3(0, 360, 0), _rotationDuration, RotateMode.FastBeyond360)
@@ -37,12 +44,24 @@ namespace Game.Character
 			_rotateTween.Pause();
 
 			_lanuchTween = _rigidbody.DOMove(transform.forward * _launchPower, _launchDuration)
-				.OnComplete(() => ResetToStartPosition());
+				.OnComplete(() => MissHit());
 		}
 
 		public void Rotate()
 		{
 			_rotateTween.Play();
+		}
+
+		private void MissHit()
+		{
+			gameObject.SetActive(false);
+
+			_rebornTween = DOVirtual.DelayedCall(_timeToReborn, () =>
+			{
+				_rebornHandler.RebornPlayer();
+
+				ResetToStartPosition();
+			});
 		}
 
 		private void ResetToStartPosition()
@@ -65,6 +84,13 @@ namespace Game.Character
 
 			_lanuchTween.Pause();
 			ResetToStartPosition();
+		}
+
+		private void OnDestroy()
+		{
+			_rotateTween?.Kill();
+			_lanuchTween?.Kill();
+			_rebornTween?.Kill();
 		}
 	}
 }

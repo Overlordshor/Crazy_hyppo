@@ -7,6 +7,12 @@ namespace Handler
 	{
 		[SerializeField] private Player _player;
 
+		private void Awake()
+		{
+			if (_player == null)
+				Debug.LogError($"Missing link to player in component {ToString()}");
+		}
+
 		private void OnMouseDown()
 		{
 			if (!_player.IsLaunched)

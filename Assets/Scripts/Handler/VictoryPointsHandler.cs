@@ -9,7 +9,9 @@ namespace Handler
 
 		private int _points;
 		private int _totalPointsCollected;
-		private LeanTooltipData tooltipData;
+		private LeanTooltipData _tooltipData;
+
+		public int Points => _points;
 
 		public delegate void PointHandler(int value);
 
@@ -17,7 +19,7 @@ namespace Handler
 
 		private void Awake()
 		{
-			tooltipData = GetComponent<LeanTooltipData>();
+			_tooltipData = GetComponent<LeanTooltipData>();
 			_points = 10;
 			_totalPointsCollected = 0;
 		}
@@ -31,8 +33,8 @@ namespace Handler
 			if (_points >= 0)
 				return;
 
-			tooltipData.Text = defeatText;
-			LeanTooltip.HoverData = tooltipData;
+			_tooltipData.Text = $"{defeatText}. Total points earned: {_totalPointsCollected}";
+			LeanTooltip.HoverData = _tooltipData;
 			LeanTooltip.HoverShow = true;
 		}
 

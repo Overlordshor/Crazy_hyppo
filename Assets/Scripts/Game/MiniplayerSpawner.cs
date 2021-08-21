@@ -1,5 +1,7 @@
 ﻿using Game.Character;
 using Handler;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Game
@@ -12,6 +14,10 @@ namespace Game
 		private VictoryPointsHandler _victoryPointsHandler;
 		private Bounds _spawnBounds;
 
+		private List<Miniplayer> _miniplayers = new List<Miniplayer>();
+
+		public bool MiniplayersAreOver => _miniplayers.Count == 0;
+
 		private void Awake()
 		{
 			InitSpawnBounds();
@@ -21,6 +27,16 @@ namespace Game
 		{
 			_victoryPointsHandler = FindObjectOfType<VictoryPointsHandler>();
 			_victoryPointsHandler.OnTotalChanges += OnTotalCollectedPointsChanged;
+		}
+
+		public void Despawn()
+		{
+			var miniplayer = _miniplayers.FirstOrDefault();
+			if (miniplayer == null)
+				return;
+
+			Destroy(miniplayer);
+			_miniplayers.RemoveAt(0);
 		}
 
 		private void InitSpawnBounds()
@@ -41,6 +57,8 @@ namespace Game
 			var miniPlayer = Instantiate(_miniplayer, GetRandomPosition(), Quaternion.identity, transform);
 			miniPlayer.gameObject.SetActive(true);
 			miniPlayer.Excite();
+
+			_miniplayers.Add(miniPlayer);
 		}
 
 		private Vector3 GetRandomPosition()
