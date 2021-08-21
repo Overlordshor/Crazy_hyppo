@@ -13,7 +13,9 @@ namespace Game.Сharacter
 		private Tween _lanuchTween;
 		private Vector3 _startPosition;
 
-		private void Awake()
+		public bool IsLaunched => _rigidbody.velocity.magnitude > 0;
+
+		protected override void OnAwake()
 		{
 			_startPosition = transform.position;
 
@@ -26,7 +28,8 @@ namespace Game.Сharacter
 		public void Launch()
 		{
 			_rotateTween.Pause();
-			_lanuchTween = transform.DOMove(transform.forward * _launchPower, 1f)
+
+			_lanuchTween = _rigidbody.DOMove(transform.forward * _launchPower, _launchDuration)
 				.OnComplete(() => ResetToStartPosition());
 		}
 
@@ -37,7 +40,9 @@ namespace Game.Сharacter
 
 		private void ResetToStartPosition()
 		{
-			transform.position = _startPosition;
+			_rigidbody.position = _startPosition;
+			_rigidbody.velocity = Vector3.zero;
+			_rigidbody.angularVelocity = Vector3.zero;
 		}
 
 		private void OnCollisionEnter(Collision collision)
@@ -48,7 +53,7 @@ namespace Game.Сharacter
 			enemy.ApplyDamage();
 			Debug.Log("HIT");
 
-			_lanuchTween.Kill();
+			_lanuchTween.Pause();
 			ResetToStartPosition();
 		}
 	}

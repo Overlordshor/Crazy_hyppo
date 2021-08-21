@@ -9,12 +9,14 @@ namespace Handler
 
 		private void OnMouseDown()
 		{
-			_player.Rotate();
+			if (!_player.IsLaunched)
+				_player.Rotate();
 		}
 
 		private void OnMouseUp()
 		{
-			_player.Launch();
+			if (!_player.IsLaunched)
+				_player.Launch();
 		}
 	}
 }

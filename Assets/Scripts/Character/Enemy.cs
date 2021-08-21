@@ -9,7 +9,7 @@ namespace Game.Сharacter
 	{
 		private Tween tween;
 
-		private void Awake()
+		protected override void OnAwake()
 		{
 			tween = transform.DOMove(FindObjectOfType<Lake>().Position, 10f)
 				.SetEase(Ease.Linear);
