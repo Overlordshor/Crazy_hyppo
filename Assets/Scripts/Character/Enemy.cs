@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using Game.Environment;
+using Game.Сharacter.View;
 using UnityEngine;
 
 namespace Game.Сharacter
@@ -28,6 +29,11 @@ namespace Game.Сharacter
 		private void OnDestroy()
 		{
 			tween?.Kill();
+		}
+
+		private void Reset()
+		{
+			_view = GetComponentInChildren<СharacterView>();
 		}
 	}
 }

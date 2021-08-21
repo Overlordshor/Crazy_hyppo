@@ -5,6 +5,6 @@ namespace Game.Сharacter
 {
 	public class Сharacter : MonoBehaviour
 	{
-		[SerializeField] private СharacterView _view = default;
+		[SerializeField] protected СharacterView _view = default;
 	}
 }

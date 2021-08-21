@@ -9,7 +9,8 @@ namespace Game.Сharacter.View
 
 		private void Awake()
 		{
-			_view.sprite = _sprite;
+			if (_sprite != null)
+				_view.sprite = _sprite;
 		}
 	}
 }
