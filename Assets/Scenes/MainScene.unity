@@ -368,6 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointsValue: 3
+  _moveDuration: 3
 --- !u!135 &101598513
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -621,6 +622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd88a795f7095641be020d38b2f51e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _miniplayersStartCount: 3
   defeatText: All the hippos were driven out of their puddles
 --- !u!1 &254771825
 GameObject:
@@ -750,6 +752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointsValue: 4
+  _moveDuration: 1
 --- !u!135 &254818191
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1799,6 +1802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointsValue: 2
+  _moveDuration: 5
 --- !u!135 &979983430
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1889,6 +1893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointsValue: 1
+  _moveDuration: 9
 --- !u!135 &1123024604
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3216,6 +3221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pointsValue: 1
+  _moveDuration: 10
 --- !u!114 &1917565123
 MonoBehaviour:
   m_ObjectHideFlags: 0

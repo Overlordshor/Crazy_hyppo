@@ -2,13 +2,13 @@
 using Game.Environment;
 using Game.Character.View;
 using UnityEngine;
-using System;
 
 namespace Game.Character
 {
 	public class Enemy : Character
 	{
 		[SerializeField] private int _pointsValue = default;
+		[SerializeField] private int _moveDuration = default;
 
 		private Tween tween;
 
@@ -16,13 +16,16 @@ namespace Game.Character
 
 		protected override void OnAwake()
 		{
-			tween = transform.DOMove(FindObjectOfType<Lake>().Position, 10f)
+			tween = transform.DOMove(FindObjectOfType<Lake>().Position, _moveDuration)
 				.SetEase(Ease.Linear);
 		}
 
 		public void Stop()
 		{
+			tween.Pause();
 			tween?.Kill();
+
+			Devalue();
 		}
 
 		public void ApplyDamage()
@@ -30,9 +33,15 @@ namespace Game.Character
 			Die();
 		}
 
+		private void Devalue()
+		{
+			_pointsValue = 0;
+		}
+
 		private void Die()
 		{
 			Debug.Log("Enemy is dead");
+			Stop();
 			Destroy(gameObject);
 		}
 

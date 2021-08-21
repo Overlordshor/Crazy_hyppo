@@ -20,8 +20,9 @@ namespace Game.Environment
 				return;
 
 			var enemy = other.GetComponent<Enemy>();
-			enemy.Stop();
 			_victoryPointsHandler.Subtract(enemy.PointsValue);
+
+			enemy.Stop();
 		}
 	}
 }

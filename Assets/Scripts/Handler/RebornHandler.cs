@@ -1,13 +1,12 @@
 ﻿using Game;
-using Game.Character;
 using Lean.Gui;
-using System;
 using UnityEngine;
 
 namespace Handler
 {
 	public class RebornHandler : MonoBehaviour
 	{
+		[SerializeField] private int _miniplayersStartCount = default;
 		[SerializeField] private string defeatText = default;
 
 		private MiniplayerSpawner _miniplayerSpawner;
@@ -19,6 +18,9 @@ namespace Handler
 			_miniplayerSpawner = FindObjectOfType<MiniplayerSpawner>();
 			_tooltipData = FindObjectOfType<LeanTooltipData>();
 			_victoryPointsHandler = FindObjectOfType<VictoryPointsHandler>();
+
+			for (int i = 0; i < _miniplayersStartCount; i++)
+				_miniplayerSpawner.Spawn();
 		}
 
 		public void RebornPlayer()

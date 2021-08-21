@@ -7,10 +7,10 @@ namespace Game.Character
 	[RequireComponent(typeof(RebornHandler))]
 	public class Player : Character
 	{
-		[SerializeField] private float _rotationDuration;
-		[SerializeField] private float _launchPower;
-		[SerializeField] private float _launchDuration;
-		[SerializeField] private float _timeToReborn;
+		[SerializeField] private float _rotationDuration = default;
+		[SerializeField] private float _launchPower = default;
+		[SerializeField] private float _launchDuration = default;
+		[SerializeField] private float _timeToReborn = default;
 
 		private VictoryPointsHandler _victoryPointsHandler;
 		private RebornHandler _rebornHandler;

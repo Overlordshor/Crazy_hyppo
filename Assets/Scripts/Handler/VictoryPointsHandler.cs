@@ -26,6 +26,9 @@ namespace Handler
 
 		public void Subtract(int value)
 		{
+			if (value == 0)
+				return;
+
 			_points -= value;
 
 			Debug.Log($"Points is {_points}");
@@ -40,6 +43,9 @@ namespace Handler
 
 		public void Add(int value)
 		{
+			if (value == 0)
+				return;
+
 			_points += value;
 			_totalPointsCollected += value;
 

@@ -5,11 +5,11 @@ namespace Handler
 {
 	public class ClickHandler : MonoBehaviour
 	{
-		[SerializeField] private Player _player;
+		[SerializeField] private Player _player = default;
 
 		private void Awake()
 		{
-			if (_player == null)
+			if (_player == default)
 				Debug.LogError($"Missing link to player in component {ToString()}");
 		}
 

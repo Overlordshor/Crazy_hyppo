@@ -8,7 +8,7 @@ namespace Game
 {
 	public class MiniplayerSpawner : MonoBehaviour
 	{
-		[SerializeField] private Miniplayer _miniplayer;
+		[SerializeField] private Miniplayer _miniplayer = default;
 		[SerializeField] private Vector3 spawnPositionOffset = default;
 
 		private VictoryPointsHandler _victoryPointsHandler;
@@ -35,8 +35,17 @@ namespace Game
 			if (miniplayer == null)
 				return;
 
-			Destroy(miniplayer);
+			Destroy(miniplayer.gameObject);
 			_miniplayers.RemoveAt(0);
+		}
+
+		public void Spawn()
+		{
+			var miniPlayer = Instantiate(_miniplayer, GetRandomPosition(), Quaternion.identity, transform);
+			miniPlayer.gameObject.SetActive(true);
+			miniPlayer.Excite();
+
+			_miniplayers.Add(miniPlayer);
 		}
 
 		private void InitSpawnBounds()
@@ -50,15 +59,6 @@ namespace Game
 		private void OnTotalCollectedPointsChanged(int value)
 		{
 			Spawn();
-		}
-
-		private void Spawn()
-		{
-			var miniPlayer = Instantiate(_miniplayer, GetRandomPosition(), Quaternion.identity, transform);
-			miniPlayer.gameObject.SetActive(true);
-			miniPlayer.Excite();
-
-			_miniplayers.Add(miniPlayer);
 		}
 
 		private Vector3 GetRandomPosition()
