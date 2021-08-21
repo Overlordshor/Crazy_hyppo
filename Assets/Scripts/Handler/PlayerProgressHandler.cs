@@ -14,7 +14,7 @@ namespace Handler
 		private LeanTooltipData _tooltipData;
 		private int _level;
 
-		public bool IsRunnig { get; set; } = true;
+		public bool IsRunnig { get; set; } = false;
 		public int Level => _level;
 		public int Points => _points;
 

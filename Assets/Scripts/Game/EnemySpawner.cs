@@ -28,13 +28,22 @@ namespace Game
 
 		private int GetRandomIndex(int max) => Random.Range(0, max);
 
-		private IEnumerator Start()
+		private void Start()
 		{
 			_playerProgress = FindObjectOfType<PlayerProgressHandler>();
 			_playerProgress.OnLevelChanges += OnLevelChanged;
 
 			_wait = new WaitForSeconds(spawnDelay);
+		}
 
+		public void StartSpawn()
+		{
+			_playerProgress.IsRunnig = true;
+			StartCoroutine(SpawnRoutime());
+		}
+
+		private IEnumerator SpawnRoutime()
+		{
 			while (_playerProgress.IsRunnig)
 			{
 				yield return _wait;

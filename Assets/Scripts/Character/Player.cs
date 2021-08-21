@@ -12,7 +12,7 @@ namespace Game.Character
 		[SerializeField] private float _launchDuration = default;
 		[SerializeField] private float _timeToReborn = default;
 
-		private PlayerProgressHandler _victoryPointsHandler;
+		private PlayerProgressHandler _playerProgress;
 		private RebornHandler _rebornHandler;
 
 		private Tween _rotateTween;
@@ -36,11 +36,14 @@ namespace Game.Character
 
 		private void Start()
 		{
-			_victoryPointsHandler = FindObjectOfType<PlayerProgressHandler>();
+			_playerProgress = FindObjectOfType<PlayerProgressHandler>();
 		}
 
 		public void Launch()
 		{
+			if (!_playerProgress.IsRunnig)
+				return;
+
 			_rotateTween.Pause();
 
 			_lanuchTween = _rigidbody.DOMove(transform.forward * _launchPower, _launchDuration)
@@ -49,6 +52,9 @@ namespace Game.Character
 
 		public void Rotate()
 		{
+			if (!_playerProgress.IsRunnig)
+				return;
+
 			_rotateTween.Play();
 		}
 
@@ -78,7 +84,7 @@ namespace Game.Character
 
 			var enemy = collision.gameObject.GetComponent<Enemy>();
 
-			_victoryPointsHandler.Add(enemy.PointsValue);
+			_playerProgress.Add(enemy.PointsValue);
 			enemy.ApplyDamage();
 			Debug.Log("HIT");
 

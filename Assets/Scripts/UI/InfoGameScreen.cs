@@ -6,16 +6,18 @@ namespace UI
 	public class InfoGameScreen : View
 	{
 		[SerializeField] private LeanButton _startButton = default;
-		[SerializeField] private View _menu = default;
+		[SerializeField] private View _rules = default;
+		[SerializeField] private View _hud = default;
 
 		protected override void OnAwake()
 		{
-			_startButton.OnClick.AddListener(() => StartGame());
+			_startButton.OnClick.AddListener(() => ShowRules());
 		}
 
-		private void StartGame()
+		private void ShowRules()
 		{
-			_menu.Show();
+			_rules.Show();
+			_hud.Show();
 			Close();
 		}
 	}
