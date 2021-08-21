@@ -11,6 +11,10 @@ namespace Handler
 		private int _totalPointsCollected;
 		private LeanTooltipData tooltipData;
 
+		public delegate void PointHandler(int value);
+
+		public event PointHandler OnTotalChanges;
+
 		private void Awake()
 		{
 			tooltipData = GetComponent<LeanTooltipData>();
@@ -21,6 +25,7 @@ namespace Handler
 		public void Subtract(int value)
 		{
 			_points -= value;
+
 			Debug.Log($"Points is {_points}");
 
 			if (_points >= 0)
@@ -35,10 +40,13 @@ namespace Handler
 		{
 			_points += value;
 			_totalPointsCollected += value;
+
 			Debug.Log($"Points is {_points}");
 
 			if (_totalPointsCollected % 10 != 0)
 				return;
+
+			OnTotalChanges.Invoke(_totalPointsCollected);
 		}
 	}
 }
