@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5679861}
   - component: {fileID: 5679862}
+  - component: {fileID: 5679863}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -205,6 +206,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5679863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acc4af3aee8f7f4fa4854074f1c5572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: 0}
 --- !u!1 &101598509
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +231,7 @@ GameObject:
   - component: {fileID: 101598513}
   - component: {fileID: 101598512}
   - component: {fileID: 101598511}
+  - component: {fileID: 101598514}
   m_Layer: 0
   m_Name: SnakePrefab
   m_TagString: Enemy
@@ -237,7 +252,7 @@ Transform:
   m_Children:
   - {fileID: 1275000258}
   m_Father: {fileID: 1356444149}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &101598511
 Rigidbody:
@@ -267,8 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11873422f604c404bb18f4af7f7eb59a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 1275000259}
-  _pointsValue: 0
+  _view: {fileID: 0}
+  _pointsValue: 3
 --- !u!135 &101598513
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -282,6 +297,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.06
   m_Center: {x: 0, y: 0.000000007450581, z: 0}
+--- !u!114 &101598514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101598509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acc4af3aee8f7f4fa4854074f1c5572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: 0}
 --- !u!1 &110546720
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32249050c87003d4ca8fa59063b215f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 214813989}
+  _view: {fileID: 0}
   _rotationDuration: 1
   _launchPower: 10
   _launchDuration: 1
@@ -403,11 +431,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 214813984}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da66b94a5d86398458ae5ccef589226c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3acc4af3aee8f7f4fa4854074f1c5572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprite: {fileID: 21300000, guid: 2d7f364deb97caf40ac660af60df54f6, type: 3}
-  _view: {fileID: 5679862}
+  _sprite: {fileID: 0}
 --- !u!1 &254818187
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +447,7 @@ GameObject:
   - component: {fileID: 254818191}
   - component: {fileID: 254818190}
   - component: {fileID: 254818189}
+  - component: {fileID: 254818192}
   m_Layer: 0
   m_Name: ParrotPrefab
   m_TagString: Enemy
@@ -440,7 +468,7 @@ Transform:
   m_Children:
   - {fileID: 768049143}
   m_Father: {fileID: 1356444149}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &254818189
 Rigidbody:
@@ -470,8 +498,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 846bfe39467a8b7419257c691b3a9fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 768049144}
-  _pointsValue: 0
+  _view: {fileID: 0}
+  _pointsValue: 4
 --- !u!135 &254818191
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -485,6 +513,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.06
   m_Center: {x: 0, y: 0.000000007450581, z: 0}
+--- !u!114 &254818192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254818187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acc4af3aee8f7f4fa4854074f1c5572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: 0}
 --- !u!1 &277167807
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +825,6 @@ GameObject:
   m_Component:
   - component: {fileID: 768049143}
   - component: {fileID: 768049145}
-  - component: {fileID: 768049144}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -806,20 +846,6 @@ Transform:
   m_Father: {fileID: 254818188}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &768049144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 768049142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da66b94a5d86398458ae5ccef589226c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sprite: {fileID: 0}
-  _view: {fileID: 0}
 --- !u!212 &768049145
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1005,6 +1031,7 @@ GameObject:
   - component: {fileID: 979983430}
   - component: {fileID: 979983429}
   - component: {fileID: 979983428}
+  - component: {fileID: 979983431}
   m_Layer: 0
   m_Name: MonkeyPrefab
   m_TagString: Enemy
@@ -1055,8 +1082,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910ebda3e85bdb34bb1e30ba59ba7413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 1451085195}
-  _pointsValue: 0
+  _view: {fileID: 0}
+  _pointsValue: 2
 --- !u!135 &979983430
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1070,6 +1097,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.06
   m_Center: {x: 0, y: 0.000000007450581, z: 0}
+--- !u!114 &979983431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979983426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acc4af3aee8f7f4fa4854074f1c5572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: 0}
 --- !u!1 &1123024600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,6 +1122,7 @@ GameObject:
   - component: {fileID: 1123024603}
   - component: {fileID: 1123024604}
   - component: {fileID: 1123024602}
+  - component: {fileID: 1123024605}
   m_Layer: 0
   m_Name: GiraffePrefab
   m_TagString: Enemy
@@ -1132,8 +1173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee8c6a44decdf7469be001f4c36a5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 1541404471}
-  _pointsValue: 0
+  _view: {fileID: 0}
+  _pointsValue: 1
 --- !u!135 &1123024604
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1147,6 +1188,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.06
   m_Center: {x: 0, y: 0.000000007450581, z: 0}
+--- !u!114 &1123024605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1123024600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acc4af3aee8f7f4fa4854074f1c5572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: 0}
 --- !u!1 &1170410752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,7 +1241,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1275000258}
   - component: {fileID: 1275000260}
-  - component: {fileID: 1275000259}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -1209,20 +1262,6 @@ Transform:
   m_Father: {fileID: 101598510}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &1275000259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1275000257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da66b94a5d86398458ae5ccef589226c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sprite: {fileID: 0}
-  _view: {fileID: 0}
 --- !u!212 &1275000260
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1305,8 +1344,8 @@ Transform:
   - {fileID: 1917565119}
   - {fileID: 1123024601}
   - {fileID: 979983427}
-  - {fileID: 254818188}
   - {fileID: 101598510}
+  - {fileID: 254818188}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1350,7 +1389,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1382297387}
   - component: {fileID: 1382297388}
-  - component: {fileID: 1382297389}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -1423,20 +1461,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1382297389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382297386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da66b94a5d86398458ae5ccef589226c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sprite: {fileID: 0}
-  _view: {fileID: 0}
 --- !u!1 &1420943956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,7 +1504,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1451085194}
   - component: {fileID: 1451085196}
-  - component: {fileID: 1451085195}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -1502,20 +1525,6 @@ Transform:
   m_Father: {fileID: 979983427}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &1451085195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451085193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da66b94a5d86398458ae5ccef589226c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sprite: {fileID: 0}
-  _view: {fileID: 0}
 --- !u!212 &1451085196
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1607,7 +1616,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1541404470}
   - component: {fileID: 1541404472}
-  - component: {fileID: 1541404471}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -1629,20 +1637,6 @@ Transform:
   m_Father: {fileID: 1123024601}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &1541404471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1541404469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da66b94a5d86398458ae5ccef589226c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sprite: {fileID: 0}
-  _view: {fileID: 0}
 --- !u!212 &1541404472
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1769,6 +1763,7 @@ GameObject:
   - component: {fileID: 1917565122}
   - component: {fileID: 1917565120}
   - component: {fileID: 1917565121}
+  - component: {fileID: 1917565123}
   m_Layer: 0
   m_Name: ElephantPrefab
   m_TagString: Enemy
@@ -1832,8 +1827,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9caf6607f9542241b4396c867b9faa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 1382297389}
-  _pointsValue: 0
+  _view: {fileID: 0}
+  _pointsValue: 1
+--- !u!114 &1917565123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917565118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3acc4af3aee8f7f4fa4854074f1c5572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sprite: {fileID: 0}
 --- !u!1 &1945992366
 GameObject:
   m_ObjectHideFlags: 0

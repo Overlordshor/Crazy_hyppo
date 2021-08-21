@@ -5,13 +5,13 @@ namespace Game.Character
 {
 	public class Character : MonoBehaviour
 	{
-		[SerializeField] protected CharacterView _view = default;
-
+		protected CharacterView _view = default;
 		protected Rigidbody _rigidbody;
 
 		private void Awake()
 		{
 			_rigidbody = GetComponent<Rigidbody>();
+			_view = GetComponent<CharacterView>();
 			OnAwake();
 		}
 
