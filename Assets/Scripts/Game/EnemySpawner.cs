@@ -1,5 +1,6 @@
-﻿using DG.Tweening;
-using Game.Character;
+﻿using Game.Character;
+using Handler;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,28 +9,74 @@ namespace Game
 {
 	public class EnemySpawner : MonoBehaviour
 	{
-		[SerializeField] private List<Enemy> _enemies = default;
+		[SerializeField] private int _secondStageLevel = default;
+		[SerializeField] private int _thirdStageLevel = default;
+
+		[SerializeField] private List<Enemy> _firstStageEnemies = default;
+		[SerializeField] private List<Enemy> _secondStageEnemies = default;
+		[SerializeField] private List<Enemy> _thirdStageEnemies = default;
+
 		[SerializeField] private float spawnDelay = default;
+		[SerializeField] private float reduceSpawnDelayValue = default;
 
 		[SerializeField] private List<Transform> _roadSpawnPositions = default;
 		[SerializeField] private List<Transform> _treeSpawnPositions = default;
 		[SerializeField] private List<Transform> _offroadSpawnPositions = default;
 
+		private PlayerProgressHandler _playerProgress;
+		private WaitForSeconds _wait;
+
 		private int GetRandomIndex(int max) => Random.Range(0, max);
 
-		private void Awake()
+		private IEnumerator Start()
 		{
-			DOVirtual.DelayedCall(spawnDelay, () => Spawn())
-				.SetLoops(-1);
+			_playerProgress = FindObjectOfType<PlayerProgressHandler>();
+			_playerProgress.OnLevelChanges += OnLevelChanged;
+
+			_wait = new WaitForSeconds(spawnDelay);
+
+			while (_playerProgress.IsRunnig)
+			{
+				yield return _wait;
+				Spawn();
+			}
+		}
+
+		private void OnLevelChanged(int value)
+		{
+			if (value <= 1)
+				return;
+
+			ReduceSpawnDelay();
+		}
+
+		private void ReduceSpawnDelay()
+		{
+			spawnDelay -= reduceSpawnDelayValue;
+			if (spawnDelay <= 0)
+				return;
+
+			_wait = new WaitForSeconds(spawnDelay);
 		}
 
 		private void Spawn()
 		{
-			var enemy = _enemies[GetRandomIndex(_enemies.Count)];
+			var enemies = GetEnemies();
+			var enemy = enemies[GetRandomIndex(enemies.Count)];
 			var spawnPosition = GetRandomSpawnPosition(enemy);
 
 			Instantiate(enemy, spawnPosition, Quaternion.identity, transform).gameObject
 				.SetActive(true);
+		}
+
+		private List<Enemy> GetEnemies()
+		{
+			if (_playerProgress.Level >= _thirdStageLevel)
+				return _thirdStageEnemies;
+			if (_playerProgress.Level >= _secondStageLevel)
+				return _secondStageEnemies;
+
+			return _firstStageEnemies;
 		}
 
 		private Vector3 GetRandomSpawnPosition(Enemy enemy)
@@ -51,7 +98,7 @@ namespace Game
 				return Vector3.zero;
 			}
 
-			return spawnPositions[GetRandomIndex(_offroadSpawnPositions.Count)].position;
+			return spawnPositions[GetRandomIndex(spawnPositions.Count)].position;
 		}
 	}
 }

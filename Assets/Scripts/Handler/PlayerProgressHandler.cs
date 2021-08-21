@@ -14,6 +14,8 @@ namespace Handler
 		private LeanTooltipData _tooltipData;
 		private int _level;
 
+		public bool IsRunnig { get; set; } = true;
+		public int Level => _level;
 		public int Points => _points;
 
 		public delegate void PointDelegate(int value);
@@ -52,6 +54,8 @@ namespace Handler
 			_tooltipData.Text = $"{defeatText}. Your Level: {_level}";
 			LeanTooltip.HoverData = _tooltipData;
 			LeanTooltip.HoverShow = true;
+
+			IsRunnig = false;
 		}
 
 		public void Add(int value)

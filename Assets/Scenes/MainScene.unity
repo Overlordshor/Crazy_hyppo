@@ -3429,13 +3429,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be075d182143294aa9cbc39bf586cb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemies:
+  _secondStageLevel: 2
+  _thirdStageLevel: 3
+  _firstStageEnemies:
   - {fileID: 1917565122}
   - {fileID: 1123024603}
+  _secondStageEnemies:
   - {fileID: 979983429}
-  - {fileID: 254818190}
   - {fileID: 101598512}
-  spawnDelay: 1
+  _thirdStageEnemies:
+  - {fileID: 254818190}
+  spawnDelay: 3
+  reduceSpawnDelayValue: 1
   _roadSpawnPositions:
   - {fileID: 1969222954}
   - {fileID: 1535927918}
@@ -5744,7 +5749,7 @@ GameObject:
   - component: {fileID: 2116003570}
   - component: {fileID: 2116003568}
   m_Layer: 0
-  m_Name: VictoryPoints
+  m_Name: PlayerProgress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
