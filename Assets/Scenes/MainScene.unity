@@ -839,7 +839,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214813984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6, y: 3.82, z: 0.38}
+  m_LocalPosition: {x: -0.6, y: 3.09, z: 0.38}
   m_LocalScale: {x: 8.90959, y: 13.076258, z: 5.5738363}
   m_Children:
   - {fileID: 1664647503}
@@ -916,7 +916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd88a795f7095641be020d38b2f51e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _miniplayersStartCount: 3
+  _miniplayersStartCount: 1
   defeatText: All the hippos were driven out of their puddles
 --- !u!1 &254771825
 GameObject:
@@ -3435,9 +3435,15 @@ MonoBehaviour:
   - {fileID: 1917565122}
   - {fileID: 1123024603}
   _secondStageEnemies:
+  - {fileID: 1917565122}
+  - {fileID: 1123024603}
   - {fileID: 979983429}
   - {fileID: 101598512}
   _thirdStageEnemies:
+  - {fileID: 1917565122}
+  - {fileID: 1123024603}
+  - {fileID: 979983429}
+  - {fileID: 101598512}
   - {fileID: 254818190}
   spawnDelay: 3
   reduceSpawnDelayValue: 0.5
