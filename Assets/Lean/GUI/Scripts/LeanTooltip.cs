@@ -13,15 +13,15 @@ namespace Lean.Gui
 	[AddComponentMenu(LeanGui.ComponentMenuPrefix + "Tooltip")]
 	public class LeanTooltip : MonoBehaviour
 	{
-		[System.Serializable] public class UnityEventString : UnityEvent<string> {}
+		[System.Serializable] public class UnityEventString : UnityEvent<string> { }
 
 		public static PointerEventData HoverPointer;
-		public static LeanTooltipData  HoverData;
-		public static bool             HoverShow;
+		public static LeanTooltipData HoverData;
+		public static bool HoverShow;
 
 		public static PointerEventData PressPointer;
-		public static LeanTooltipData  PressData;
-		public static bool             PressShow;
+		public static LeanTooltipData PressData;
+		public static bool PressShow;
 
 		public enum BoundaryType
 		{
@@ -41,33 +41,49 @@ namespace Lean.Gui
 		/// HoverOrPress = When the mouse is hovering, or when the mouse/finger is pressing.
 		/// Hover = Only when the mouse is hovering.
 		/// Press = Only when the mouse/finger is pressing.</summary>
-		public ActivationType Activation { set { activation = value; } get { return activation; } } [SerializeField] private ActivationType activation;
+		public ActivationType Activation { set { activation = value; } get { return activation; } }
+
+		[SerializeField] private ActivationType activation;
 
 		/// <summary>This allows you to delay how quickly the tooltip will appear or switch.</summary>
-		public float ShowDelay { set { showDelay = value; } get { return showDelay; } } [SerializeField] private float showDelay;
+		public float ShowDelay { set { showDelay = value; } get { return showDelay; } }
+
+		[SerializeField] private float showDelay;
 
 		/// <summary>Move the attached Transform when the tooltip is open?</summary>
-		public bool Move { set { move = value; } get { return move; } } [SerializeField] private bool move = true;
+		public bool Move { set { move = value; } get { return move; } }
+
+		[SerializeField] private bool move = true;
 
 		/// <summary>This allows you to control how the tooltip will behave when it goes outside the screen bounds.</summary>
-		public BoundaryType Boundary { set { boundary = value; } get { return boundary; } } [SerializeField] private BoundaryType boundary;
+		public BoundaryType Boundary { set { boundary = value; } get { return boundary; } }
+
+		[SerializeField] private BoundaryType boundary;
 
 		/// <summary>This allows you to perform a transition when this tooltip appears.
 		/// You can create a new transition GameObject by right clicking the transition name, and selecting <b>Create</b>.
 		/// For example, the <b>Graphic.color Transition (LeanGraphicColor)</b> component can be used to change the color.
 		/// NOTE: Any transitions you perform here should be reverted in the <b>Hide Transitions</b> setting using a matching transition component.</summary>
-		public LeanPlayer ShowTransitions { get { if (showTransitions == null) showTransitions = new LeanPlayer(); return showTransitions; } } [SerializeField] private LeanPlayer showTransitions;
+		public LeanPlayer ShowTransitions { get { if (showTransitions == null) showTransitions = new LeanPlayer(); return showTransitions; } }
+
+		[SerializeField] private LeanPlayer showTransitions;
 
 		/// <summary>This allows you to perform a transition when this tooltip hides.
 		/// You can create a new transition GameObject by right clicking the transition name, and selecting <b>Create</b>.
 		/// For example, the <b>Graphic.color Transition (LeanGraphicColor)</b> component can be used to change the color.</summary>
-		public LeanPlayer HideTransitions { get { if (hideTransitions == null) hideTransitions = new LeanPlayer(); return hideTransitions; } } [SerializeField] private LeanPlayer hideTransitions;
+		public LeanPlayer HideTransitions { get { if (hideTransitions == null) hideTransitions = new LeanPlayer(); return hideTransitions; } }
+
+		[SerializeField] private LeanPlayer hideTransitions;
 
 		/// <summary>This allows you to perform an action when this tooltip appears.</summary>
-		public UnityEventString OnShow { get { if (onShow == null) onShow = new UnityEventString(); return onShow; } } [SerializeField] private UnityEventString onShow;
+		public UnityEventString OnShow { get { if (onShow == null) onShow = new UnityEventString(); return onShow; } }
+
+		[SerializeField] private UnityEventString onShow;
 
 		/// <summary>This allows you to perform an action when this tooltip hides.</summary>
-		public UnityEvent OnHide { get { if (onHide == null) onHide = new UnityEvent(); return onHide; } } [SerializeField] private UnityEvent onHide;
+		public UnityEvent OnHide { get { if (onHide == null) onHide = new UnityEvent(); return onHide; } }
+
+		[SerializeField] private UnityEvent onHide;
 
 		[System.NonSerialized]
 		private LeanTooltipData tooltip;
@@ -90,51 +106,51 @@ namespace Lean.Gui
 		{
 			if (cachedRectTransformSet == false)
 			{
-				cachedRectTransform    = GetComponent<RectTransform>();
+				cachedRectTransform = GetComponent<RectTransform>();
 				cachedRectTransformSet = true;
 			}
 
-			var finalData  = default(LeanTooltipData);
+			var finalData = default(LeanTooltipData);
 			var finalPoint = default(Vector2);
 
 			switch (activation)
 			{
 				case ActivationType.HoverOrPress:
-				{
-					if (HoverShow == true)
 					{
-						finalData  = HoverData;
-						finalPoint = HoverPointer.position;
+						if (HoverShow == true)
+						{
+							finalData = HoverData;
+							finalPoint = transform.position;
+						}
 					}
-				}
-				break;
+					break;
 
 				case ActivationType.Hover:
-				{
-					if (HoverShow == true && PressShow == false)
 					{
-						finalData  = HoverData;
-						finalPoint = HoverPointer.position;
+						if (HoverShow == true && PressShow == false)
+						{
+							finalData = HoverData;
+							finalPoint = transform.position;
+						}
 					}
-				}
-				break;
+					break;
 
 				case ActivationType.Press:
-				{
-					if (PressShow == true && HoverShow == true && HoverData == PressData)
 					{
-						finalData  = PressData;
-						finalPoint = PressPointer.position;
+						if (PressShow == true && HoverShow == true && HoverData == PressData)
+						{
+							finalData = PressData;
+							finalPoint = transform.position;
+						}
 					}
-				}
-				break;
+					break;
 			}
 
 			if (tooltip != finalData)
 			{
-				currentDelay  = 0.0f;
-				tooltip       = finalData;
-				shown         = false;
+				currentDelay = 0.0f;
+				tooltip = finalData;
+				shown = false;
 
 				Hide();
 			}
@@ -168,8 +184,14 @@ namespace Lean.Gui
 				{
 					var pivot = cachedRectTransform.pivot;
 
-					if (min.x < 0.0f) pivot.x = 0.0f; else if (max.x > Screen.width ) pivot.x = 1.0f;
-					if (min.y < 0.0f) pivot.y = 0.0f; else if (max.y > Screen.height) pivot.y = 1.0f;
+					if (min.x < 0.0f)
+						pivot.x = 0.0f;
+					else if (max.x > Screen.width)
+						pivot.x = 1.0f;
+					if (min.y < 0.0f)
+						pivot.y = 0.0f;
+					else if (max.y > Screen.height)
+						pivot.y = 1.0f;
 
 					cachedRectTransform.pivot = pivot;
 				}
@@ -178,8 +200,14 @@ namespace Lean.Gui
 				{
 					var position = cachedRectTransform.position;
 
-					if (min.x < 0.0f) position.x -= min.x; else if (max.x > Screen.width ) position.x -= max.x - Screen.width;
-					if (min.y < 0.0f) position.y -= min.y; else if (max.y > Screen.height) position.y -= max.y - Screen.height;
+					if (min.x < 0.0f)
+						position.x -= min.x;
+					else if (max.x > Screen.width)
+						position.x -= max.x - Screen.width;
+					if (min.y < 0.0f)
+						position.y -= min.y;
+					else if (max.y > Screen.height)
+						position.y -= max.y - Screen.height;
 
 					cachedRectTransform.position = position;
 				}
@@ -217,6 +245,7 @@ namespace Lean.Gui
 }
 
 #if UNITY_EDITOR
+
 namespace Lean.Gui.Editor
 {
 	using TARGET = LeanTooltip;
@@ -227,7 +256,9 @@ namespace Lean.Gui.Editor
 	{
 		protected override void OnInspector()
 		{
-			TARGET tgt; TARGET[] tgts; GetTargets(out tgt, out tgts);
+			TARGET tgt;
+			TARGET[] tgts;
+			GetTargets(out tgt, out tgts);
 
 			Draw("activation", "This allows you to control when the tooltip will appear.\nHoverOrPress = When the mouse is hovering, or when the mouse/finger is pressing.\nHover = Only when the mouse is hovering.\nPress = Only when the mouse/finger is pressing.");
 			Draw("showDelay", "This allows you to delay how quickly the tooltip will appear or switch.");
@@ -238,7 +269,7 @@ namespace Lean.Gui.Editor
 			if (Any(tgts, t => t.Move == true))
 			{
 				BeginIndent();
-					Draw("boundary", "This allows you to control how the tooltip will behave when it goes outside the screen bounds.");
+				Draw("boundary", "This allows you to control how the tooltip will behave when it goes outside the screen bounds.");
 				EndIndent();
 			}
 
@@ -254,4 +285,5 @@ namespace Lean.Gui.Editor
 		}
 	}
 }
+
 #endif
