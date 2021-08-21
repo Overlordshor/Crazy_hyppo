@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Game.Сharacter.View
+namespace Game.Character.View
 {
-	public class СharacterView : MonoBehaviour
+	public class CharacterView : MonoBehaviour
 	{
 		[SerializeField] private Sprite _sprite;
 		[SerializeField] private SpriteRenderer _view;

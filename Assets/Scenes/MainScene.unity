@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 101598511}
   m_Layer: 0
   m_Name: SnakePrefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 1275000259}
+  _pointsValue: 0
 --- !u!135 &101598513
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -311,7 +312,7 @@ Transform:
   - {fileID: 1969222954}
   - {fileID: 1535927918}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &214813984
 GameObject:
@@ -421,7 +422,7 @@ GameObject:
   - component: {fileID: 254818189}
   m_Layer: 0
   m_Name: ParrotPrefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -470,6 +471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 768049144}
+  _pointsValue: 0
 --- !u!135 &254818191
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -738,8 +740,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.149, y: 0, z: -0.73}
   m_LocalScale: {x: 2.9253376, y: 0.9999999, z: 1.6758771}
-  m_Children:
-  - {fileID: 1945992367}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -990,7 +991,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &979983426
 GameObject:
@@ -1006,7 +1007,7 @@ GameObject:
   - component: {fileID: 979983428}
   m_Layer: 0
   m_Name: MonkeyPrefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1055,6 +1056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 1451085195}
+  _pointsValue: 0
 --- !u!135 &979983430
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1082,7 +1084,7 @@ GameObject:
   - component: {fileID: 1123024602}
   m_Layer: 0
   m_Name: GiraffePrefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1131,6 +1133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 1541404471}
+  _pointsValue: 0
 --- !u!135 &1123024604
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1465,7 +1468,7 @@ Transform:
   - {fileID: 277167808}
   - {fileID: 690478541}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1451085193
 GameObject:
@@ -1722,7 +1725,7 @@ Transform:
   - {fileID: 823612359}
   - {fileID: 1170410753}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1895026303
 GameObject:
@@ -1768,7 +1771,7 @@ GameObject:
   - component: {fileID: 1917565121}
   m_Layer: 0
   m_Name: ElephantPrefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1830,6 +1833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 1382297389}
+  _pointsValue: 0
 --- !u!1 &1945992366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,6 +1845,7 @@ GameObject:
   - component: {fileID: 1945992367}
   - component: {fileID: 1945992368}
   - component: {fileID: 1945992369}
+  - component: {fileID: 1945992370}
   m_Layer: 0
   m_Name: Lake
   m_TagString: Finish
@@ -1856,11 +1861,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945992366}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.11, y: 0.15, z: -0.1}
-  m_LocalScale: {x: 13.383883, y: 22.059175, z: 3.580534}
+  m_LocalPosition: {x: 0.8272129, y: 0.14999999, z: -0.8975877}
+  m_LocalScale: {x: 39.152378, y: 36.968475, z: 3.5805345}
   m_Children: []
-  m_Father: {fileID: 549694465}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &1945992368
 SpriteRenderer:
@@ -1925,6 +1930,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd1d1f2b9ed0df04d988c9807f2484a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &1945992370
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945992366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.09
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1969222953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,6 +1972,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 110546721}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2116003567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2116003569}
+  - component: {fileID: 2116003568}
+  m_Layer: 0
+  m_Name: VictoryPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2116003568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116003567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd65858065df13469658581d2a80a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2116003569
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116003567}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.2660939, y: 2.389999, z: -1.8543059}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2137977828
 GameObject:

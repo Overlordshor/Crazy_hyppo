@@ -1,4 +1,4 @@
-﻿namespace Game.Сharacter
+﻿namespace Game.Character
 {
 	public class Snake : Enemy
 	{

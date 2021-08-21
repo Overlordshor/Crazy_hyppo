@@ -1,11 +1,11 @@
-﻿using Game.Сharacter.View;
+﻿using Game.Character.View;
 using UnityEngine;
 
-namespace Game.Сharacter
+namespace Game.Character
 {
-	public class Сharacter : MonoBehaviour
+	public class Character : MonoBehaviour
 	{
-		[SerializeField] protected СharacterView _view = default;
+		[SerializeField] protected CharacterView _view = default;
 
 		protected Rigidbody _rigidbody;
 

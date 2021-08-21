@@ -1,18 +1,28 @@
 ﻿using DG.Tweening;
 using Game.Environment;
-using Game.Сharacter.View;
+using Game.Character.View;
 using UnityEngine;
+using System;
 
-namespace Game.Сharacter
+namespace Game.Character
 {
-	public class Enemy : Сharacter
+	public class Enemy : Character
 	{
+		[SerializeField] private int _pointsValue = default;
+
 		private Tween tween;
+
+		public int PointsValue { get => _pointsValue; }
 
 		protected override void OnAwake()
 		{
 			tween = transform.DOMove(FindObjectOfType<Lake>().Position, 10f)
 				.SetEase(Ease.Linear);
+		}
+
+		public void Stop()
+		{
+			tween?.Kill();
 		}
 
 		public void ApplyDamage()
@@ -28,12 +38,12 @@ namespace Game.Сharacter
 
 		private void OnDestroy()
 		{
-			tween?.Kill();
+			Stop();
 		}
 
 		private void Reset()
 		{
-			_view = GetComponentInChildren<СharacterView>();
+			_view = GetComponentInChildren<CharacterView>();
 		}
 	}
 }

@@ -1,5 +1,5 @@
 ﻿using DG.Tweening;
-using Game.Сharacter;
+using Game.Character;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;

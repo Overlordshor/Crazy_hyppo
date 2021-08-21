@@ -1,14 +1,16 @@
 ﻿using DG.Tweening;
+using Handler;
 using UnityEngine;
 
-namespace Game.Сharacter
+namespace Game.Character
 {
-	public class Player : Сharacter
+	public class Player : Character
 	{
 		[SerializeField] private float _rotationDuration;
 		[SerializeField] private float _launchPower;
 		[SerializeField] private float _launchDuration;
 
+		private VictoryPointsHandler _victoryPointsHandler;
 		private Tween _rotateTween;
 		private Tween _lanuchTween;
 		private Vector3 _startPosition;
@@ -23,6 +25,11 @@ namespace Game.Сharacter
 						.SetEase(Ease.Linear)
 						.SetLoops(-1)
 						.Pause();
+		}
+
+		private void Start()
+		{
+			_victoryPointsHandler = FindObjectOfType<VictoryPointsHandler>();
 		}
 
 		public void Launch()
@@ -47,9 +54,12 @@ namespace Game.Сharacter
 
 		private void OnCollisionEnter(Collision collision)
 		{
-			if (!collision.gameObject.TryGetComponent<Enemy>(out var enemy))
+			if (!collision.gameObject.CompareTag("Enemy"))
 				return;
 
+			var enemy = collision.gameObject.GetComponent<Enemy>();
+
+			_victoryPointsHandler.Add(enemy.PointsValue);
 			enemy.ApplyDamage();
 			Debug.Log("HIT");
 

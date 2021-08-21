@@ -1,4 +1,4 @@
-﻿using Game.Сharacter;
+﻿using Game.Character;
 using UnityEngine;
 
 namespace Handler
