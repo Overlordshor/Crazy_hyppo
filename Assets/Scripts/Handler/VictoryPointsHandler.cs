@@ -5,6 +5,8 @@ namespace Handler
 {
 	public class VictoryPointsHandler : MonoBehaviour
 	{
+		[SerializeField] private string defeatText = default;
+
 		private int _points;
 		private int _totalPointsCollected;
 		private LeanTooltipData tooltipData;
@@ -24,7 +26,7 @@ namespace Handler
 			if (_points >= 0)
 				return;
 
-			tooltipData.Text = "You lose";
+			tooltipData.Text = defeatText;
 			LeanTooltip.HoverData = tooltipData;
 			LeanTooltip.HoverShow = true;
 		}
@@ -37,10 +39,6 @@ namespace Handler
 
 			if (_totalPointsCollected % 10 != 0)
 				return;
-
-			tooltipData.Text = "Get an extra life";
-			LeanTooltip.HoverData = null;
-			LeanTooltip.HoverShow = false;
 		}
 	}
 }

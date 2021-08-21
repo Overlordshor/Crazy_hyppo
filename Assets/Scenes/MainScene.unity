@@ -3425,6 +3425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cd65858065df13469658581d2a80a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defeatText: You lose.
 --- !u!4 &2116003569
 Transform:
   m_ObjectHideFlags: 0
