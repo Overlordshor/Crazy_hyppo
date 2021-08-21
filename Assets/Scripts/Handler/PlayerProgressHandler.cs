@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Handler
 {
-	public class VictoryPointsHandler : MonoBehaviour
+	public class PlayerProgressHandler : MonoBehaviour
 	{
 		[SerializeField] private string defeatText = default;
 		[SerializeField] private int startingPoints = default;
@@ -16,11 +16,11 @@ namespace Handler
 
 		public int Points => _points;
 
-		public delegate void PointHandler(int value);
+		public delegate void PointDelegate(int value);
 
-		public event PointHandler OnChanges;
+		public event PointDelegate OnChanges;
 
-		public event PointHandler OnLevelChanges;
+		public event PointDelegate OnLevelChanges;
 
 		private void Awake()
 		{
@@ -32,8 +32,8 @@ namespace Handler
 
 		private void Start()
 		{
-			OnChanges.Invoke(_points);
-			OnLevelChanges.Invoke(_level);
+			OnChanges?.Invoke(_points);
+			OnLevelChanges?.Invoke(_level);
 		}
 
 		public void Subtract(int value)

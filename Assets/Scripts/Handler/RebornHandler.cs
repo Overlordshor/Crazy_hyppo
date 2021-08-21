@@ -11,13 +11,13 @@ namespace Handler
 
 		private MiniplayerSpawner _miniplayerSpawner;
 		private LeanTooltipData _tooltipData;
-		private VictoryPointsHandler _victoryPointsHandler;
+		private PlayerProgressHandler _victoryPointsHandler;
 
 		private void Start()
 		{
 			_miniplayerSpawner = FindObjectOfType<MiniplayerSpawner>();
 			_tooltipData = FindObjectOfType<LeanTooltipData>();
-			_victoryPointsHandler = FindObjectOfType<VictoryPointsHandler>();
+			_victoryPointsHandler = FindObjectOfType<PlayerProgressHandler>();
 
 			for (int i = 0; i < _miniplayersStartCount; i++)
 				_miniplayerSpawner.Spawn();

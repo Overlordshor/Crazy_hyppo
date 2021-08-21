@@ -5741,8 +5741,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2116003569}
-  - component: {fileID: 2116003568}
   - component: {fileID: 2116003570}
+  - component: {fileID: 2116003568}
   m_Layer: 0
   m_Name: VictoryPoints
   m_TagString: Untagged
@@ -5759,7 +5759,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2116003567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cd65858065df13469658581d2a80a74, type: 3}
+  m_Script: {fileID: 11500000, guid: b6337e90e0b9d0244b66de5260f27757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   defeatText: Your puddle has been drained by other animals

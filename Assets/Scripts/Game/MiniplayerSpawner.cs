@@ -11,7 +11,7 @@ namespace Game
 		[SerializeField] private Miniplayer _miniplayer = default;
 		[SerializeField] private Vector3 spawnPositionOffset = default;
 
-		private VictoryPointsHandler _victoryPointsHandler;
+		private PlayerProgressHandler _victoryPointsHandler;
 		private Bounds _spawnBounds;
 
 		private List<Miniplayer> _miniplayers = new List<Miniplayer>();
@@ -25,7 +25,7 @@ namespace Game
 
 		private void Start()
 		{
-			_victoryPointsHandler = FindObjectOfType<VictoryPointsHandler>();
+			_victoryPointsHandler = FindObjectOfType<PlayerProgressHandler>();
 			_victoryPointsHandler.OnLevelChanges += OnLevelChanged;
 		}
 

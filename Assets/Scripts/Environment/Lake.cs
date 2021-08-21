@@ -6,12 +6,12 @@ namespace Game.Environment
 {
 	public class Lake : MonoBehaviour
 	{
-		private VictoryPointsHandler _victoryPointsHandler;
+		private PlayerProgressHandler _victoryPointsHandler;
 		public Vector3 Position => transform.position;
 
 		private void Start()
 		{
-			_victoryPointsHandler = FindObjectOfType<VictoryPointsHandler>();
+			_victoryPointsHandler = FindObjectOfType<PlayerProgressHandler>();
 		}
 
 		private void OnTriggerEnter(Collider other)

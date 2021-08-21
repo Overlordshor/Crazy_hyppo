@@ -12,7 +12,7 @@ namespace Game.Character
 		[SerializeField] private float _launchDuration = default;
 		[SerializeField] private float _timeToReborn = default;
 
-		private VictoryPointsHandler _victoryPointsHandler;
+		private PlayerProgressHandler _victoryPointsHandler;
 		private RebornHandler _rebornHandler;
 
 		private Tween _rotateTween;
@@ -36,7 +36,7 @@ namespace Game.Character
 
 		private void Start()
 		{
-			_victoryPointsHandler = FindObjectOfType<VictoryPointsHandler>();
+			_victoryPointsHandler = FindObjectOfType<PlayerProgressHandler>();
 		}
 
 		public void Launch()
