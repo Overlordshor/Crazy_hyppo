@@ -38,9 +38,9 @@ namespace Game
 
 		private void Spawn()
 		{
-			var spawnPosition = GetRandomPosition();
-			Instantiate(_miniplayer, spawnPosition, Quaternion.identity, transform).gameObject
-				.SetActive(true);
+			var miniPlayer = Instantiate(_miniplayer, GetRandomPosition(), Quaternion.identity, transform);
+			miniPlayer.gameObject.SetActive(true);
+			miniPlayer.Excite();
 		}
 
 		private Vector3 GetRandomPosition()

@@ -617,6 +617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254771826}
   - component: {fileID: 254771827}
+  - component: {fileID: 254771828}
   m_Layer: 0
   m_Name: Miniplayer
   m_TagString: Untagged
@@ -651,6 +652,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5bddb572860024390ecfbe128689ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shakeValue: 0.003
+  _shakeDuration: 0.3
+  _rotationDuration: 1
+--- !u!54 &254771828
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254771825}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
 --- !u!1 &254818187
 GameObject:
   m_ObjectHideFlags: 0
@@ -3223,7 +3243,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945992366}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.8272129, y: 0, z: -0.8975877}
+  m_LocalPosition: {x: 0.8272129, y: 1, z: -0.8975877}
   m_LocalScale: {x: 39.152378, y: 36.968475, z: 3.5805345}
   m_Children:
   - {fileID: 254771826}
