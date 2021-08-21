@@ -2,36 +2,39 @@
 using TMPro;
 using UnityEngine;
 
-public class HUD : MonoBehaviour
+namespace UI
 {
-	[SerializeField] private TextMeshProUGUI _points = default;
-	[SerializeField] private TextMeshProUGUI _level = default;
-
-	private PlayerProgressHandler _victoryPointsHandler;
-
-	private void Awake()
+	public class HUD : View
 	{
-		_victoryPointsHandler = FindObjectOfType<PlayerProgressHandler>();
-		_victoryPointsHandler.OnChanges += OnPointChanged;
-		_victoryPointsHandler.OnLevelChanges += OnLevelChanged;
-	}
+		[SerializeField] private TextMeshProUGUI _points = default;
+		[SerializeField] private TextMeshProUGUI _level = default;
 
-	private void OnPointChanged(int value)
-	{
-		if (value < 0)
-			return;
+		private PlayerProgressHandler _victoryPointsHandler;
 
-		_points.SetText(value.ToString());
-	}
+		private void Awake()
+		{
+			_victoryPointsHandler = FindObjectOfType<PlayerProgressHandler>();
+			_victoryPointsHandler.OnChanges += OnPointChanged;
+			_victoryPointsHandler.OnLevelChanges += OnLevelChanged;
+		}
 
-	private void OnLevelChanged(int value)
-	{
-		_level.SetText(value.ToString());
-	}
+		private void OnPointChanged(int value)
+		{
+			if (value < 0)
+				return;
 
-	private void OnDestroy()
-	{
-		_victoryPointsHandler.OnChanges -= OnPointChanged;
-		_victoryPointsHandler.OnLevelChanges -= OnLevelChanged;
+			_points.SetText(value.ToString());
+		}
+
+		private void OnLevelChanged(int value)
+		{
+			_level.SetText(value.ToString());
+		}
+
+		private void OnDestroy()
+		{
+			_victoryPointsHandler.OnChanges -= OnPointChanged;
+			_victoryPointsHandler.OnLevelChanges -= OnLevelChanged;
+		}
 	}
 }

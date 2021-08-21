@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 namespace UI
 {
-	public class DefeatSreen : MonoBehaviour
+	public class DefeatSreen : View
 	{
 		[SerializeField] private LeanButton _restartButton = default;
 
