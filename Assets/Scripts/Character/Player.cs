@@ -1,9 +1,9 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace Game
+namespace Game.Сharacter
 {
-	public class Player : MonoBehaviour
+	public class Player : Сharacter
 	{
 		[SerializeField] private float _rotationDuration;
 		[SerializeField] private float _launchPower;

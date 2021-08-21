@@ -1,9 +1,10 @@
 ﻿using DG.Tweening;
+using Game.Environment;
 using UnityEngine;
 
-namespace Game
+namespace Game.Сharacter
 {
-	public class Enemy : MonoBehaviour
+	public class Enemy : Сharacter
 	{
 		private Tween tween;
 

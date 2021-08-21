@@ -1,8 +1,5 @@
-﻿using Game;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Game.Сharacter;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Handler
 {
