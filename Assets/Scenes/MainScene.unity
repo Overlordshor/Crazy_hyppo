@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 214813986}
   - component: {fileID: 214813987}
   - component: {fileID: 214813989}
+  - component: {fileID: 214813990}
   - component: {fileID: 214813985}
   - component: {fileID: 214813988}
   m_Layer: 0
@@ -593,6 +594,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sprite: {fileID: 0}
+--- !u!114 &214813990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214813984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 823e0ad9055275b49ba715e82404ff27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 214813987}
 --- !u!1 &254771825
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,7 +1057,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -3192,6 +3206,7 @@ GameObject:
   - component: {fileID: 1945992368}
   - component: {fileID: 1945992369}
   - component: {fileID: 1945992371}
+  - component: {fileID: 1945992372}
   - component: {fileID: 1945992370}
   m_Layer: 0
   m_Name: Lake
@@ -3304,6 +3319,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _miniplayer: {fileID: 254771827}
+  spawnPositionOffset: {x: 1, y: 0, z: 1}
+--- !u!114 &1945992372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945992366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 823e0ad9055275b49ba715e82404ff27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 214813987}
 --- !u!1 &1969222953
 GameObject:
   m_ObjectHideFlags: 0
