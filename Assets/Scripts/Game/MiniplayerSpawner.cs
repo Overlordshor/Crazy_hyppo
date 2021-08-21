@@ -26,7 +26,7 @@ namespace Game
 		private void Start()
 		{
 			_victoryPointsHandler = FindObjectOfType<VictoryPointsHandler>();
-			_victoryPointsHandler.OnTotalChanges += OnTotalCollectedPointsChanged;
+			_victoryPointsHandler.OnLevelChanges += OnLevelChanged;
 		}
 
 		public void Despawn()
@@ -56,8 +56,11 @@ namespace Game
 			_spawnBounds.max -= spawnPositionOffset;
 		}
 
-		private void OnTotalCollectedPointsChanged(int value)
+		private void OnLevelChanged(int value)
 		{
+			if (value <= 1)
+				return;
+
 			Spawn();
 		}
 

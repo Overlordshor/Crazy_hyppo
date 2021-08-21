@@ -6,22 +6,34 @@ namespace Handler
 	public class VictoryPointsHandler : MonoBehaviour
 	{
 		[SerializeField] private string defeatText = default;
+		[SerializeField] private int startingPoints = default;
+		[SerializeField] private int pointsToLevelUp = default;
 
 		private int _points;
 		private int _totalPointsCollected;
 		private LeanTooltipData _tooltipData;
+		private int _level;
 
 		public int Points => _points;
 
 		public delegate void PointHandler(int value);
 
-		public event PointHandler OnTotalChanges;
+		public event PointHandler OnChanges;
+
+		public event PointHandler OnLevelChanges;
 
 		private void Awake()
 		{
 			_tooltipData = GetComponent<LeanTooltipData>();
-			_points = 10;
+			_points = startingPoints;
+			_level = 1;
 			_totalPointsCollected = 0;
+		}
+
+		private void Start()
+		{
+			OnChanges.Invoke(_points);
+			OnLevelChanges.Invoke(_level);
 		}
 
 		public void Subtract(int value)
@@ -30,13 +42,14 @@ namespace Handler
 				return;
 
 			_points -= value;
+			OnChanges.Invoke(_points);
 
 			Debug.Log($"Points is {_points}");
 
 			if (_points >= 0)
 				return;
 
-			_tooltipData.Text = $"{defeatText}. Total points earned: {_totalPointsCollected}";
+			_tooltipData.Text = $"{defeatText}. Your Level: {_level}";
 			LeanTooltip.HoverData = _tooltipData;
 			LeanTooltip.HoverShow = true;
 		}
@@ -48,13 +61,15 @@ namespace Handler
 
 			_points += value;
 			_totalPointsCollected += value;
+			OnChanges.Invoke(_points);
 
 			Debug.Log($"Points is {_points}");
 
-			if (_totalPointsCollected % 10 != 0)
+			if (_totalPointsCollected % pointsToLevelUp != 0)
 				return;
 
-			OnTotalChanges.Invoke(_totalPointsCollected);
+			_level++;
+			OnLevelChanges.Invoke(_level);
 		}
 	}
 }
