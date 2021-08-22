@@ -1379,7 +1379,8 @@ MonoBehaviour:
   _rotationDuration: 2
   _launchPower: 25
   _launchDuration: 2
-  _timeToReborn: 0.5
+  _timeToReborn: 0.2
+  _maxLanuchCount: 2
 --- !u!54 &214813988
 Rigidbody:
   m_ObjectHideFlags: 0

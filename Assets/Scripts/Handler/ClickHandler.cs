@@ -15,14 +15,14 @@ namespace Handler
 
 		private void Update()
 		{
-			if (_player.IsLaunched)
-				return;
+			if (!_player.IsLaunched || _player.IsSecondJumpAvailable)
+			{
+				if (Input.GetMouseButtonDown(0))
+					_player.RotateLeft();
 
-			if (Input.GetMouseButtonDown(0))
-				_player.RotateLeft();
-
-			if (Input.GetMouseButtonDown(1))
-				_player.RotateRigth();
+				if (Input.GetMouseButtonDown(1))
+					_player.RotateRigth();
+			}
 
 			if (!_player.IsRotated)
 				return;
