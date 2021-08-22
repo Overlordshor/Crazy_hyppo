@@ -727,6 +727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pointsValue: 4
   _moveDuration: 6
+  _scaleDuration: 0.5
 --- !u!135 &101598513
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -755,7 +756,7 @@ MonoBehaviour:
   _emoji: {fileID: 0}
   _sprite: {fileID: 0}
   _spriteAngry: {fileID: 0}
-  _shakeScaleDuration: 0
+  _shakeScaleDuration: 1
 --- !u!1 &110546720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,6 +1241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pointsValue: 5
   _moveDuration: 5
+  _scaleDuration: 0.5
 --- !u!135 &254818191
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1268,7 +1270,7 @@ MonoBehaviour:
   _emoji: {fileID: 0}
   _sprite: {fileID: 0}
   _spriteAngry: {fileID: 0}
-  _shakeScaleDuration: 0
+  _shakeScaleDuration: 1
 --- !u!1 &272416790
 GameObject:
   m_ObjectHideFlags: 0
@@ -4338,6 +4340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pointsValue: 3
   _moveDuration: 8
+  _scaleDuration: 0.5
 --- !u!135 &979983430
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4366,7 +4369,7 @@ MonoBehaviour:
   _emoji: {fileID: 0}
   _sprite: {fileID: 0}
   _spriteAngry: {fileID: 0}
-  _shakeScaleDuration: 0
+  _shakeScaleDuration: 1
 --- !u!1 &1004319322
 GameObject:
   m_ObjectHideFlags: 0
@@ -4750,6 +4753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pointsValue: 2
   _moveDuration: 9
+  _scaleDuration: 0.5
 --- !u!135 &1123024604
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4778,7 +4782,7 @@ MonoBehaviour:
   _emoji: {fileID: 0}
   _sprite: {fileID: 0}
   _spriteAngry: {fileID: 0}
-  _shakeScaleDuration: 0
+  _shakeScaleDuration: 1
 --- !u!1001 &1157644380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7704,6 +7708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pointsValue: 1
   _moveDuration: 10
+  _scaleDuration: 0.5
 --- !u!114 &1917565123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7719,7 +7724,7 @@ MonoBehaviour:
   _emoji: {fileID: 0}
   _sprite: {fileID: 0}
   _spriteAngry: {fileID: 0}
-  _shakeScaleDuration: 0
+  _shakeScaleDuration: 1
 --- !u!1001 &1942648238
 PrefabInstance:
   m_ObjectHideFlags: 0

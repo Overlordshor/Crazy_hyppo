@@ -8,21 +8,22 @@ namespace Game.Character
 	public class Enemy : Character
 	{
 		[SerializeField] private int _pointsValue = default;
-		[SerializeField] private int _moveDuration = default;
+		[SerializeField] private float _moveDuration = default;
+		[SerializeField] private float _scaleDuration = default;
 
-		private Tween tween;
+		private Tween _tween;
 
 		public int PointsValue { get => _pointsValue; }
 
 		protected override void OnAwake()
 		{
-			tween = transform.DOMove(FindObjectOfType<Lake>().Position, _moveDuration)
+			_tween = transform.DOMove(FindObjectOfType<Lake>().Position, _moveDuration)
 				.SetEase(Ease.Linear);
 		}
 
 		public void Stop()
 		{
-			tween?.Kill();
+			_tween?.Kill();
 
 			Devalue();
 		}
@@ -40,7 +41,9 @@ namespace Game.Character
 		private void Die()
 		{
 			Stop();
-			Destroy(gameObject);
+
+			_tween = transform.DOScale(Vector3.zero, _scaleDuration)
+				.OnComplete(() => Destroy(gameObject));
 		}
 
 		private void OnDestroy()
