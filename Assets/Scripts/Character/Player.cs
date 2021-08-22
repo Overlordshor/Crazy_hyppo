@@ -30,6 +30,8 @@ namespace Game.Character
 			_rebornHandler = GetComponent<RebornHandler>();
 
 			_startPosition = _rigidbody.position;
+
+			_view.PlaySleepVFX();
 		}
 
 		private void Start()
@@ -48,27 +50,20 @@ namespace Game.Character
 				.OnComplete(() => MissHit());
 		}
 
-		public void RotateRigth()
+		public void RotateRigth() => Rotate(Direction.Right);
+
+		public void RotateLeft() => Rotate(Direction.Left);
+
+		private void Rotate(Direction direction)
 		{
 			if (!_playerProgress.IsRunnig)
 				return;
 
 			TryKillTweens();
 
-			_rotateRightTween = _rigidbody.DORotate(new Vector3(0, 360, 0), _rotationDuration, RotateMode.FastBeyond360)
-						.SetEase(Ease.Linear)
-						.SetRelative()
-						.SetLoops(-1);
-		}
+			_view.StopSleepVFX();
 
-		public void RotateLeft()
-		{
-			if (!_playerProgress.IsRunnig)
-				return;
-
-			TryKillTweens();
-
-			_rotateLeftTween = _rigidbody.DORotate(new Vector3(0, -360, 0), _rotationDuration, RotateMode.FastBeyond360)
+			_rotateLeftTween = _rigidbody.DORotate(new Vector3(0, (float)direction, 0), _rotationDuration, RotateMode.FastBeyond360)
 					.SetEase(Ease.Linear)
 					.SetRelative()
 					.SetLoops(-1);
@@ -93,6 +88,8 @@ namespace Game.Character
 			_rigidbody.position = _startPosition;
 			_rigidbody.velocity = Vector3.zero;
 			_rigidbody.angularVelocity = Vector3.zero;
+
+			_view.PlaySleepVFX();
 		}
 
 		private void OnCollisionEnter(Collision collision)
@@ -104,9 +101,8 @@ namespace Game.Character
 
 			_playerProgress.Add(enemy.PointsValue);
 			enemy.ApplyDamage();
-			Debug.Log("HIT");
 
-			_lanuchTween.Pause();
+			TryKillTweens();
 			ResetToStartPosition();
 		}
 
@@ -121,6 +117,13 @@ namespace Game.Character
 			_rotateLeftTween?.Kill();
 			_lanuchTween?.Kill();
 			_rebornTween?.Kill();
+		}
+
+		private enum Direction
+		{
+			None,
+			Left = -360,
+			Right = 360
 		}
 	}
 }

@@ -22,7 +22,6 @@ namespace Game.Character
 
 		public void Stop()
 		{
-			tween.Pause();
 			tween?.Kill();
 
 			Devalue();
@@ -40,7 +39,6 @@ namespace Game.Character
 
 		private void Die()
 		{
-			Debug.Log("Enemy is dead");
 			Stop();
 			Destroy(gameObject);
 		}
