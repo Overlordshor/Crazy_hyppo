@@ -85,13 +85,14 @@ namespace Game.Character
 			_rebornTween = DOVirtual.DelayedCall(_timeToReborn, () =>
 			{
 				_rebornHandler.RebornPlayer();
-				_lanuchCount = 0;
+
 				ResetToStartPosition();
 			});
 		}
 
 		private void ResetToStartPosition()
 		{
+			_lanuchCount = 0;
 			_rigidbody.position = _startPosition;
 			_rigidbody.velocity = Vector3.zero;
 			_rigidbody.angularVelocity = Vector3.zero;
