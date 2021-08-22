@@ -91,7 +91,8 @@ namespace Game.Character
 			_rigidbody.velocity = Vector3.zero;
 			_rigidbody.angularVelocity = Vector3.zero;
 
-			_view.PlayAngry();
+			if (_playerProgress.IsRunnig)
+				_view.PlayAngry();
 		}
 
 		private void OnCollisionEnter(Collision collision)
