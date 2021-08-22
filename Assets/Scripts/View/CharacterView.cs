@@ -1,14 +1,19 @@
-﻿using System;
+﻿using DG.Tweening;
 using UnityEngine;
 
 namespace Game.Character.View
 {
 	public class CharacterView : MonoBehaviour
 	{
+		[SerializeField] private SpriteRenderer _emoji;
+
 		[SerializeField] private Sprite _sprite = default;
-		[SerializeField] private ParticleSystem _sleepVfx = default;
+		[SerializeField] private Sprite _spriteAngry = default;
+		[SerializeField] private float _shakeScaleDuration = default;
 
 		private SpriteRenderer _view;
+
+		private Tween _tween;
 
 		private void Awake()
 		{
@@ -18,8 +23,25 @@ namespace Game.Character.View
 				_view.sprite = _sprite;
 		}
 
-		public void PlaySleepVFX() => _sleepVfx.Play();
+		public void PlayAngry()
+		{
+			_emoji.gameObject.SetActive(true);
+			_emoji.sprite = _spriteAngry;
 
-		public void StopSleepVFX() => _sleepVfx.Stop();
+			_tween?.Kill();
+			_tween = _emoji.gameObject.transform.DOShakeScale(_shakeScaleDuration, 1, 1)
+				.SetLoops(-1);
+		}
+
+		public void StopEmoji()
+		{
+			_tween?.Kill();
+			_emoji.gameObject.SetActive(false);
+		}
+
+		private void OnDestroy()
+		{
+			_tween?.Kill();
+		}
 	}
 }

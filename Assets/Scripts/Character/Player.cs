@@ -31,7 +31,7 @@ namespace Game.Character
 
 			_startPosition = _rigidbody.position;
 
-			_view.PlaySleepVFX();
+			_view.PlayAngry();
 		}
 
 		private void Start()
@@ -61,7 +61,7 @@ namespace Game.Character
 
 			TryKillTweens();
 
-			_view.StopSleepVFX();
+			_view.StopEmoji();
 
 			_rotateLeftTween = _rigidbody.DORotate(new Vector3(0, (float)direction, 0), _rotationDuration, RotateMode.FastBeyond360)
 					.SetEase(Ease.Linear)
@@ -89,7 +89,7 @@ namespace Game.Character
 			_rigidbody.velocity = Vector3.zero;
 			_rigidbody.angularVelocity = Vector3.zero;
 
-			_view.PlaySleepVFX();
+			_view.PlayAngry();
 		}
 
 		private void OnCollisionEnter(Collision collision)
