@@ -15,23 +15,21 @@ namespace Game.Character
 		private PlayerProgressHandler _playerProgress;
 		private RebornHandler _rebornHandler;
 
-		private Tween _rotateTween;
+		private Tween _rotateRightTween;
+		private Tween _rotateLeftTween;
 		private Tween _lanuchTween;
 		private Tween _rebornTween;
 		private Vector3 _startPosition;
 
 		public bool IsLaunched => _rigidbody.velocity.magnitude > 0 && gameObject.activeSelf;
 
+		public bool IsRotated => _rotateRightTween.IsActive() || _rotateLeftTween.IsActive();
+
 		protected override void OnAwake()
 		{
 			_rebornHandler = GetComponent<RebornHandler>();
 
-			_startPosition = transform.position;
-
-			_rotateTween = transform.DORotate(new Vector3(0, 360, 0), _rotationDuration, RotateMode.FastBeyond360)
-						.SetEase(Ease.Linear)
-						.SetLoops(-1)
-						.Pause();
+			_startPosition = _rigidbody.position;
 		}
 
 		private void Start()
@@ -44,23 +42,43 @@ namespace Game.Character
 			if (!_playerProgress.IsRunnig)
 				return;
 
-			_rotateTween.Pause();
+			TryKillTweens();
 
 			_lanuchTween = _rigidbody.DOMove(transform.forward * _launchPower, _launchDuration)
 				.OnComplete(() => MissHit());
 		}
 
-		public void Rotate()
+		public void RotateRigth()
 		{
 			if (!_playerProgress.IsRunnig)
 				return;
 
-			_rotateTween.Play();
+			TryKillTweens();
+
+			_rotateRightTween = _rigidbody.DORotate(new Vector3(0, 360, 0), _rotationDuration, RotateMode.FastBeyond360)
+						.SetEase(Ease.Linear)
+						.SetRelative()
+						.SetLoops(-1);
+		}
+
+		public void RotateLeft()
+		{
+			if (!_playerProgress.IsRunnig)
+				return;
+
+			TryKillTweens();
+
+			_rotateLeftTween = _rigidbody.DORotate(new Vector3(0, -360, 0), _rotationDuration, RotateMode.FastBeyond360)
+					.SetEase(Ease.Linear)
+					.SetRelative()
+					.SetLoops(-1);
 		}
 
 		private void MissHit()
 		{
 			gameObject.SetActive(false);
+
+			TryKillTweens();
 
 			_rebornTween = DOVirtual.DelayedCall(_timeToReborn, () =>
 			{
@@ -94,7 +112,13 @@ namespace Game.Character
 
 		private void OnDestroy()
 		{
-			_rotateTween?.Kill();
+			TryKillTweens();
+		}
+
+		private void TryKillTweens()
+		{
+			_rotateRightTween?.Kill();
+			_rotateLeftTween?.Kill();
 			_lanuchTween?.Kill();
 			_rebornTween?.Kill();
 		}

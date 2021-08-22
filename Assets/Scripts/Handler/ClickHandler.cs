@@ -13,15 +13,21 @@ namespace Handler
 				Debug.LogError($"Missing link to player in component {ToString()}");
 		}
 
-		private void OnMouseDown()
+		private void Update()
 		{
-			if (!_player.IsLaunched)
-				_player.Rotate();
-		}
+			if (_player.IsLaunched)
+				return;
 
-		private void OnMouseUp()
-		{
-			if (!_player.IsLaunched)
+			if (Input.GetMouseButtonDown(0))
+				_player.RotateLeft();
+
+			if (Input.GetMouseButtonDown(1))
+				_player.RotateRigth();
+
+			if (!_player.IsRotated)
+				return;
+
+			if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
 				_player.Launch();
 		}
 	}
