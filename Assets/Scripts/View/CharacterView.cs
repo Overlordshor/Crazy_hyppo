@@ -12,11 +12,13 @@ namespace Game.Character.View
 		[SerializeField] private float _shakeScaleDuration = default;
 
 		private SpriteRenderer _view;
+		private AudioSource _audioSource;
 
 		private Tween _tween;
 
 		private void Awake()
 		{
+			TryGetComponent<AudioSource>(out _audioSource);
 			_view = GetComponentInChildren<SpriteRenderer>();
 
 			if (_sprite != default)
@@ -37,6 +39,11 @@ namespace Game.Character.View
 		{
 			_tween?.Kill();
 			_emoji.gameObject.SetActive(false);
+		}
+
+		public void PlayKick()
+		{
+			_audioSource?.Play();
 		}
 
 		private void OnDestroy()

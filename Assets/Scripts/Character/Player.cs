@@ -104,6 +104,7 @@ namespace Game.Character
 
 			_playerProgress.Add(enemy.PointsValue);
 			enemy.ApplyDamage();
+			_view.PlayKick();
 
 			TryKillTweens();
 			ResetToStartPosition();
