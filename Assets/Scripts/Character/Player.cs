@@ -46,7 +46,9 @@ namespace Game.Character
 
 			TryKillTweens();
 
-			_lanuchTween = _rigidbody.DOMove(transform.forward * _launchPower, _launchDuration)
+			_lanuchTween = _rigidbody
+				.DOMove(transform.forward * _launchPower, _launchDuration)
+				.SetRelative()
 				.OnComplete(() => MissHit());
 		}
 
