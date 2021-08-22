@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UI
 {
-	public class InfoGameScreen : View
+	public class InfoScreen : View
 	{
 		[SerializeField] private LeanButton _startButton = default;
 		[SerializeField] private View _rules = default;
