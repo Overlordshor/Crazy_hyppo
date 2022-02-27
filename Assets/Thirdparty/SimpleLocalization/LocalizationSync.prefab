@@ -48,10 +48,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TableId: 1zs18Oq6Cs1tPdUCWkAq8P1xcm2vdDrpGMp9jY4Ay78Q
   Sheets:
-  - Name: Menu
-    Id: 0
-  - Name: Settings
-    Id: 331980525
+  - Name: StartUp
+    Id: 1622469771
+  - Name: Info
+    Id: 608632342
   SaveFolder: {fileID: 102900000, guid: c392831e85f928548b8494fefd912562, type: 3}
 --- !u!1001 &151760428904314459
 PrefabInstance:

@@ -1,0 +1,8 @@
+Key,English,German,Russian
+Info.Text,"The game is based on a completely real fact. The hippopotamus is a ferocious animal, every time someone tries to approach the reservoir, he aggressively drives him away from his territory!","Das Spiel basiert auf einer völlig realen Tatsache. Das Nilpferd ist ein wildes Tier, jedes Mal, wenn jemand versucht, sich dem Stausee zu nähern, vertreibt es ihn aggressiv von seinem Territorium!","Игра основана на совершенно реальном факте. Бегемот - свирепое животное, каждый раз, когда кто-то пытается приблизиться к водоему, он агрессивно прогоняет его со своей территории!"
+,,Einfach,Легко
+,Medium,Mittel,Средне
+,Hard,Hart,Сложно
+,Effects volume,Effektlautstärke,Громкость звуков
+,Music volume,Musiklautstärke,Громкость музыки
+,Play time: {0:N1} h.,Spielzeit: {0:N1} h.,Время в игре: {0:N1} ч.
