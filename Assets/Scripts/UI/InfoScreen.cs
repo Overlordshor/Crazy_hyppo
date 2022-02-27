@@ -1,4 +1,5 @@
-﻿using Lean.Gui;
+﻿using Game;
+using Lean.Gui;
 using UnityEngine;
 
 namespace UI
@@ -6,19 +7,17 @@ namespace UI
 	public class InfoScreen : View
 	{
 		[SerializeField] private LeanButton _startButton = default;
-		[SerializeField] private View _rules = default;
 		[SerializeField] private View _hud = default;
 
 		protected override void OnAwake()
 		{
-			_startButton.OnClick.AddListener(() => ShowRules());
-		}
-
-		private void ShowRules()
-		{
-			_rules.Show();
-			_hud.Show();
-			Close();
+			var enemySpawner = FindObjectOfType<EnemySpawner>();
+			_startButton.OnClick.AddListener(() =>
+			{
+				_hud.Show();
+				enemySpawner.StartSpawn();
+				Close();
+			});
 		}
 	}
 }

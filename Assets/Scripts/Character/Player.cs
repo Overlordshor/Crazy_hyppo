@@ -11,6 +11,7 @@ namespace Game.Character
 		[SerializeField] private float _launchPower = default;
 		[SerializeField] private float _launchDuration = default;
 		[SerializeField] private float _timeToReborn = default;
+		[SerializeField] private int _maxLanuchCount = default;
 
 		private PlayerProgressHandler _playerProgress;
 		private RebornHandler _rebornHandler;
@@ -21,7 +22,10 @@ namespace Game.Character
 		private Tween _rebornTween;
 		private Vector3 _startPosition;
 
-		public bool IsLaunched => _rigidbody.velocity.magnitude > 0 && gameObject.activeSelf;
+		private int _lanuchCount = 0;
+
+		public bool IsLaunched => _lanuchTween.IsActive() && gameObject.activeSelf;
+		public bool IsSecondJumpAvailable => _lanuchCount < _maxLanuchCount;
 
 		public bool IsRotated => _rotateRightTween.IsActive() || _rotateLeftTween.IsActive();
 
@@ -46,6 +50,7 @@ namespace Game.Character
 
 			TryKillTweens();
 
+			_lanuchCount++;
 			_lanuchTween = _rigidbody
 				.DOMove(transform.forward * _launchPower, _launchDuration)
 				.SetRelative()
@@ -87,6 +92,7 @@ namespace Game.Character
 
 		private void ResetToStartPosition()
 		{
+			_lanuchCount = 0;
 			_rigidbody.position = _startPosition;
 			_rigidbody.velocity = Vector3.zero;
 			_rigidbody.angularVelocity = Vector3.zero;
@@ -104,6 +110,7 @@ namespace Game.Character
 
 			_playerProgress.Add(enemy.PointsValue);
 			enemy.ApplyDamage();
+			_view.PlayKick();
 
 			TryKillTweens();
 			ResetToStartPosition();
