@@ -62,7 +62,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6704480335088883432, guid: bd4fd09b4ef22644ead73e3d0462f86d, type: 3}
       propertyPath: m_Name
-      value: Example
+      value: LocaliztionApplication
       objectReference: {fileID: 0}
     - target: {fileID: 6704480335088883478, guid: bd4fd09b4ef22644ead73e3d0462f86d, type: 3}
       propertyPath: m_RootOrder

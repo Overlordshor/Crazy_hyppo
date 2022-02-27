@@ -1,8 +1,10 @@
 Key,English,German,Russian
 Info.Text,"The game is based on a completely real fact. The hippopotamus is a ferocious animal, every time someone tries to approach the reservoir, he aggressively drives him away from his territory!","Das Spiel basiert auf einer völlig realen Tatsache. Das Nilpferd ist ein wildes Tier, jedes Mal, wenn jemand versucht, sich dem Stausee zu nähern, vertreibt es ihn aggressiv von seinem Territorium!","Игра основана на совершенно реальном факте. Бегемот - свирепое животное, каждый раз, когда кто-то пытается приблизиться к водоему, он агрессивно прогоняет его со своей территории!"
-,,Einfach,Легко
-,Medium,Mittel,Средне
-,Hard,Hart,Сложно
-,Effects volume,Effektlautstärke,Громкость звуков
-,Music volume,Musiklautstärke,Громкость музыки
-,Play time: {0:N1} h.,Spielzeit: {0:N1} h.,Время в игре: {0:N1} ч.
+Info.Spin,Spin,Drehen,Крути
+Info.Attack,and attack,und angreifen,и атакуй
+Info.Run,Run it and get points,Führen Sie es aus und erhalten Sie Punkte,Запускай и получай очки
+Info.All,All animals have their own points,Alle Tiere haben ihre eigenen Punkte,У всех животных есть свои очки
+Info.Points,The points received turn into a hippo. Spend them as extra lives,Die erhaltenen Punkte verwandeln sich in ein Nilpferd. Verbringe sie als Extraleben,Полученные очки превращаются в бегемотика. Тратьте их как дополнительные жизни
+Info.Miss,A miss takes away points,Ein Fehlschuss bringt Punkte weg,Промах снимает очки
+Info.Attack_1,"*In the right direction-right-click , Left-left","*Drehen Sie nach rechts - Rechtsklick, links - Linksklick","*Крутится на право - правый щелчок, левый - левый"
+Info.Attack_2,"*When pressed 2 times, the hippo will change direction",*Bei zweimaligem Drücken ändert das Nilpferd die Richtung,*При нажатии 2 раза бегемот изменит направление
