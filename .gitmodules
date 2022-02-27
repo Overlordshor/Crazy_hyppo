@@ -1,0 +1,3 @@
+[submodule "Assets/SG"]
+	path = Assets/SG
+	url = https://github.com/Overlordshor/SG.git
