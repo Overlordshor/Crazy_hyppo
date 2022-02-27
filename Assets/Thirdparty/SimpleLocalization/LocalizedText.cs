@@ -6,7 +6,7 @@ namespace Assets.SimpleLocalization
 	/// <summary>
 	/// Localize text component.
 	/// </summary>
-    [RequireComponent(typeof(Text))]
+	[RequireComponent(typeof(Text))]
     public class LocalizedText : MonoBehaviour
     {
         public string LocalizationKey;
